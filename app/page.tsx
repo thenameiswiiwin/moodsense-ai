@@ -17,7 +17,7 @@ export default function Home() {
           illuminate the path to emotional awareness and well-being.
         </p>
         <div>
-          <Link href="/">
+          <Link href="/journal">
             <button className="rounded-lg bg-blue-600 px-4 py-2 text-xl">
               get started
             </button>
