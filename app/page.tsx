@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 export default async function Home() {
   const { userId } = await auth()
-  const href = userId ? '/journal' : '/new-user'
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-black text-white">
@@ -21,7 +20,7 @@ export default async function Home() {
           illuminate the path to emotional awareness and well-being.
         </p>
         <div>
-          <Link href={href}>
+          <Link href={userId ? '/journal' : '/new-user'}>
             <button className="rounded-lg bg-blue-600 px-4 py-2 text-xl">
               get started
             </button>

@@ -16,9 +16,9 @@ const createNewUser = async () => {
   if (!match) {
     await prisma.user.create({
       data: {
-        clerkId: user.id,
-        email: user?.emailAddresses[0].emailAddress,
-        name: user.username,
+        clerkId: user.id as string,
+        email: user?.emailAddresses[0].emailAddress as string,
+        name: user?.username as string,
       },
     })
   }
