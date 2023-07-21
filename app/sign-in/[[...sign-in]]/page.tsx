@@ -1,7 +1,11 @@
 import { SignIn } from '@clerk/nextjs'
 
 const SignInPage = () => {
-  return <SignIn signUpUrl="/sign-up" />
+  return (
+    <div className="flex h-screen w-screen items-center justify-center">
+      <SignIn signUpUrl="/sign-up" />
+    </div>
+  )
 }
 
 export default SignInPage

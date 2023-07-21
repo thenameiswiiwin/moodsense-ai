@@ -1,9 +1,5 @@
 const JournalPage = () => {
-  return (
-    <div>
-      <h1>Journal</h1>
-    </div>
-  )
+  return <div>journal</div>
 }
 
 export default JournalPage
