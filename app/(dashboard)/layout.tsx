@@ -10,7 +10,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <header className="h-[60px] border-b border-black/10">
           <nav className="h-full px-4">
             <div className="flex h-full items-center justify-end">
-              <UserButton afterSignOutUrl="/" />
+              <UserButton />
             </div>
           </nav>
         </header>
