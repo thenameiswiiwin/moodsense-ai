@@ -6,13 +6,15 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       <aside className="absolute left-0 top-0 h-full w-[200px] border-r border-black/10">
         Moodsense
       </aside>
-      <div className="ml-[200px]">
+      <div className="ml-[200px] h-full w-[calc(100vw-200px)]">
         <header className="h-[60px] border-b border-black/10">
-          <div className="flex h-full w-full items-center justify-end px-6">
-            <UserButton />
-          </div>
+          <nav className="h-full px-4">
+            <div className="flex h-full items-center justify-end">
+              <UserButton afterSignOutUrl="/" />
+            </div>
+          </nav>
         </header>
-        <div>{children}</div>
+        <div className="h-[calc(100vh-60px)]">{children}</div>
       </div>
     </div>
   )
