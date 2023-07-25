@@ -5,8 +5,8 @@ import { prisma } from '@/utils/db'
 
 const createNewUser = async () => {
   const user = await currentUser()
-  console.log(user)
 
+  if (!user) return
   const match = await prisma.user.findUnique({
     where: {
       clerkId: user.id as string,

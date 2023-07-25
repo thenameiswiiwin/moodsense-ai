@@ -1,8 +1,8 @@
 import { auth } from '@clerk/nextjs'
 import Link from 'next/link'
 
-export default async function Home() {
-  const { userId } = await auth()
+export default function Home() {
+  const { userId } = auth()
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-black text-white">
