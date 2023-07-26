@@ -18,7 +18,7 @@ const parser = StructuredOutputParser.fromZodSchema(
     color: z
       .string()
       .describe(
-        'a hexidecimal color code that represents the mood of the entry. Example #0101fe for blue representing happiness.',
+        'a hexidecimal color code that represents the mood of the entry. Example #33cc00 for green representing happiness.',
       ),
   }),
 )
