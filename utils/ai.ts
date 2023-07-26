@@ -22,7 +22,6 @@ const parser = StructuredOutputParser.fromZodSchema(
       ),
   }),
 )
-
 const getPrompt = async (content: string) => {
   const format_instructions = parser.getFormatInstructions()
 
