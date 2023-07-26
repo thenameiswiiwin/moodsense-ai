@@ -53,5 +53,10 @@ export const analyze = async (content: string) => {
   })
   const result = await model.call(input)
 
-  console.log(result)
+  try {
+    return await parser.parse(result)
+  } catch (error) {
+    console.error('Error occurred during parsing:', error)
+    throw error
+  }
 }
