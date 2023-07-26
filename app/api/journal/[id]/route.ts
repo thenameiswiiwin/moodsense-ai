@@ -39,5 +39,5 @@ export const PATCH = async (
     update: analysis,
   })
 
-  return NextResponse.json({ data: updatedEntry })
+  return NextResponse.json({ data: { ...updatedEntry, analysis: updated } })
 }
