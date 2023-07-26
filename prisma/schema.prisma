@@ -49,6 +49,7 @@ model Analysis {
   summary  String  @db.Text
   color    String
   negative Boolean
+  subject  String
 
   @@unique([entryId])
 }
