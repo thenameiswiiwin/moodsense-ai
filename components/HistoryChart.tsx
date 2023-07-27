@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis } from 'recharts'
 
 interface CustomTooltipProps {
@@ -18,17 +19,33 @@ const CustomTooltip = ({ payload, label, active }: CustomTooltipProps) => {
     minute: 'numeric',
   })
 
-  if (active) {
-    const analysis = payload[0].payload
+  const [isVisible, setIsVisible] = useState(false)
+
+  // Add a delay to show the tooltip with a fade-in effect
+  useEffect(() => {
+    let timeout: NodeJS.Timeout
+    if (active) {
+      timeout = setTimeout(() => {
+        setIsVisible(true)
+      }, 200)
+    } else {
+      setIsVisible(false)
+    }
+
+    return () => clearTimeout(timeout)
+  }, [active])
+
+  if (active && isVisible) {
+    const analysis = payload[0]?.payload
 
     return (
-      <div className="custom-tooltip relative rounded-lg border border-black/10 bg-white/5 p-8 shadow-md backdrop-blur-md">
+      <div className="custom-tooltip relative animate-fade-in rounded-lg border border-black/10 bg-white/5 p-8 shadow-md backdrop-blur-md">
         <div
           className="absolute left-2 top-2 h-2 w-2 rounded-full"
-          style={{ background: analysis.color }}
+          style={{ background: analysis?.color || '#8884d8' }}
         ></div>
         <p className="label text-sm text-black/30">{dateLabel}</p>
-        <p className="intro text-xl uppercase">{analysis.mood}</p>
+        <p className="intro text-xl uppercase">{analysis?.mood}</p>
       </div>
     )
   }
@@ -38,6 +55,7 @@ const CustomTooltip = ({ payload, label, active }: CustomTooltipProps) => {
 
 interface DataProp {
   createdAt: Date
+  sentimentScore: number
   mood: string
   color: string
 }

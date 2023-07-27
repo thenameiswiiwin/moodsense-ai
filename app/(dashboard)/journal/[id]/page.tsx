@@ -35,7 +35,11 @@ const EntryPage = async ({ params }: EntryPageProp) => {
       </div>
     )
   }
-  return <div>Loading...</div>
+  return (
+    <div className="flex h-screen items-center justify-center">
+      <div className="animate-spin h-12 w-12 rounded-full border-t-4 border-blue-500" />
+    </div>
+  )
 }
 
 export default EntryPage

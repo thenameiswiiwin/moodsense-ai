@@ -1,11 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useAutosave } from 'react-autosave'
 
 import { updateEntry } from '@/utils/api'
-
-import Spinner from './Spinner'
 
 interface EntryProp {
   id: string
@@ -43,24 +41,24 @@ const Editor = ({ entry }: { entry: EntryProp }) => {
   })
 
   return (
-    <div className="relative grid h-full w-full grid-cols-3 gap-0 overflow-hidden">
-      <div className="absolute left-0 top-0 p-2">
+    <div className="relative grid h-full w-full grid-cols-1 gap-0 overflow-hidden md:grid-cols-5">
+      <div className="md:absolute md:left-0 md:top-0 md:p-2">
         {isLoading ? (
-          <Spinner />
+          <div className="animate-spin flex h-[16px] w-[16px] items-center rounded-full bg-green-500" />
         ) : (
-          <div className="h-[16px] w-[16px] rounded-full bg-green-500"></div>
+          <div className="h-[16px] w-[16px] rounded-full bg-green-500" />
         )}
       </div>
-      <div className="col-span-2">
-        <textarea
-          className="h-full w-full p-8 text-xl outline-none"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-      </div>
-
-      <div className="border-l border-black/10">
-        <div className="px-6 py-10" style={{ backgroundColor: color }}>
+      <textarea
+        className="h-full w-full p-8 text-xl outline-none md:col-span-3"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <div className="border-t border-black/10 md:col-span-2 md:border-l md:border-black/10">
+        <div
+          className={`md: p-6 py-10${isLoading ? 'animate-pulse' : ''}`}
+          style={{ backgroundColor: color }}
+        >
           <h2 className="text-2xl">Analysis</h2>
         </div>
         <div>
@@ -68,10 +66,20 @@ const Editor = ({ entry }: { entry: EntryProp }) => {
             {analysisData.map((item) => (
               <li
                 key={item.name}
-                className="flex items-center justify-between border-y border-black/10 px-2 py-4"
+                className={`flex flex-col items-start justify-between border-y border-black/10 px-4 py-6 md:flex-row md:items-center ${
+                  isLoading ? 'animate-pulse' : ''
+                }`}
               >
-                <span className="text-lg font-semibold">{item.name}</span>
-                <span className="text-end">{item.value}</span>
+                <span
+                  className={`text-lg font-semibold md:flex-1 ${
+                    isLoading ? '' : 'md:mb-0'
+                  }`}
+                >
+                  {item.name}
+                </span>
+                <span className="md:ml-2 md:flex-1 md:text-end">
+                  {isLoading ? '...' : item.value}
+                </span>
               </li>
             ))}
           </ul>

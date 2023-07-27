@@ -28,7 +28,9 @@ const createNewUser = async () => {
 
 const NewUser = async () => {
   await createNewUser()
-  return <div>...loading</div>
+  return (
+    <div className="flex h-screen items-center justify-center">Loading...</div>
+  )
 }
 
 export default NewUser

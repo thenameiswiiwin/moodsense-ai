@@ -18,13 +18,22 @@ const getData = async () => {
 const History = async () => {
   const { avgSentimentScore, analysis } = await getData()
 
-  return (
-    <div className="h-full overflow-hidden px-10 py-12">
-      <div>
-        <h1 className="mb-4 text-2xl">{`Average Sentiment Score: ${avgSentimentScore}`}</h1>
+  if (analysis && avgSentimentScore) {
+    return (
+      <div className="h-full overflow-hidden px-6 py-8">
+        <div>
+          <h1 className="text-2xl font-bold">{`Average Sentiment Score: ${avgSentimentScore}`}</h1>
+        </div>
+        <div className="h-full w-full">
+          <HistoryChart data={analysis} />
+        </div>
       </div>
-      <div className="h-full w-full">
-        <HistoryChart data={analysis} />
+    )
+  }
+  return (
+    <div className="h-full overflow-hidden px-6 py-8">
+      <div className="flex h-full items-center justify-center">
+        <div className="animate-spin h-12 w-12 rounded-full border-t-4 border-blue-500" />
       </div>
     </div>
   )
