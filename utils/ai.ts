@@ -4,7 +4,7 @@ import { PromptTemplate } from 'langchain/prompts'
 import z from 'zod'
 import { Document } from 'langchain/document'
 import { loadQARefineChain } from 'langchain/chains'
-import { OpenAIEmbeddings } from 'langchain/embeddings'
+import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
 import { MemoryVectorStore } from 'langchain/vectorstores/memory'
 
 const parser = StructuredOutputParser.fromZodSchema(
@@ -76,7 +76,7 @@ export const qa = async (
   const store = await MemoryVectorStore.fromDocuments(docs, embeddings)
   const relevantDocs = await store.similaritySearch(question)
   const res = await chain.call({
-    input_document: relevantDocs,
+    input_documents: relevantDocs,
     question,
   })
 

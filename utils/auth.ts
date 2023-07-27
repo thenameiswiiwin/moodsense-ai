@@ -7,7 +7,7 @@ export const getUserByClerkID = async () => {
 
   const user = await prisma.user.findUniqueOrThrow({
     where: {
-      clerkId: userId,
+      clerkId: userId ?? undefined,
     },
   })
 
