@@ -1,5 +1,7 @@
 # MoodSense AI
 
+[Show Case](https://moodsense-ai-gmsa.vercel.app/)
+
 MoodSense AI is an advanced journaling app that harnesses the power of Artificial Intelligence (AI) to provide deep insights into your emotional journey. By analyzing your journal entries, MoodSense AI helps you understand your emotions better, track mood patterns, and gain valuable perspectives on your emotional well-being. Whether you're seeking self-discovery or personal growth, MoodSense AI is your partner on the journey to emotional awareness.
 
 ## Table of Contents
