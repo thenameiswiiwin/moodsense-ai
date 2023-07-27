@@ -39,8 +39,8 @@ const Question = () => {
       >
         Ask
       </button>
-      {loading && <div>Loading...</div>}
-      {response && <div className="my-4 text-xl">{response}</div>}
+      {loading && <div>...Loading</div>}
+      {response && <div className="my-4 text-lg">{response}</div>}
     </form>
   )
 }

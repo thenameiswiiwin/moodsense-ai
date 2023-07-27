@@ -25,7 +25,7 @@ const JournalPage = async () => {
 
   return (
     <div className="h-full bg-zinc-100/50 px-6 py-8">
-      <h1 className="mb-12 text-4xl">Journals</h1>
+      <h1 className="mb-12 text-4xl">Journal</h1>
       <div className="my-8">
         <Question />
       </div>
