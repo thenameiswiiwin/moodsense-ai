@@ -6,12 +6,15 @@ const Question = () => {
   const [value, setValue] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value)
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // do something
   }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Ask a question"
@@ -20,7 +23,7 @@ const Question = () => {
       />
       <button
         type="submit"
-        className="rounded-lg bg-blue-400 px-4 py-2 text-lg"
+        className="ml-2 rounded-lg bg-blue-400 px-4 py-2 text-lg"
       >
         Ask
       </button>
