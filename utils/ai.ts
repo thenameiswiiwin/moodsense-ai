@@ -59,7 +59,7 @@ export const analyze = async (content: string) => {
   }
 }
 
-const qa = async (
+export const qa = async (
   question: string,
   entries: { id: string; content: string; createdAt: Date }[],
 ) => {
