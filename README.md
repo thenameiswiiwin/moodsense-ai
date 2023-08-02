@@ -49,7 +49,7 @@ git clone https://github.com/thenameiswiiwin/moodsense-ai.git
 
 ```
 cd moodsense-ai
-yarn install
+yarn
 ```
 
 ### Configuration
